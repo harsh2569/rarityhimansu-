@@ -22,7 +22,9 @@ const Textfield: React.FC<textfieldprops> = ({
         {label}
       </label>
       <input {...props} type={type} {...field}></input>
-      <ErrorMessage name={field.name} />
+      <div style={{ color: "red" }}>
+        <ErrorMessage name={field.name} />
+      </div>
     </div>
   );
 };

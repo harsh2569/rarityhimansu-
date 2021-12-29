@@ -2,6 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  height: 100px;
+  background-color: crimson;
 
   & ul {
     display: flex;
@@ -9,6 +11,7 @@
       padding: 0 10px;
       list-style-type: none;
       a {
+        color: white;
         text-decoration: none;
       }
     }

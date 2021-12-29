@@ -2,13 +2,46 @@ import React from "react";
 import { Formik, Form } from "formik";
 import Textfield from "../../components/textfield/textfield";
 import "./register.scss";
+import * as Yup from "yup";
 
 const Register = () => {
   const initialvalues = {};
+
+  const validate = Yup.object({
+    email: Yup.string().required("Email is required"),
+    collection_name: Yup.string().required("Collection name is required"),
+    collection_url: Yup.string().required("Collection URL is required"),
+    website_url: Yup.string().required("Website URL is required"),
+    official_twitter_url: Yup.string().required("Twitter URL is required"),
+    official_discord_url: Yup.string().required("Discord URL is required"),
+    description: Yup.string().required("Description is required"),
+    status_of_your_project: Yup.string().required(
+      "Status of your project is required"
+    ),
+    maximum_no_of_items: Yup.string().required(
+      "Maximum no of items is required"
+    ),
+    collection_blockchain: Yup.string().required(
+      "Collection of blockchain is required"
+    ),
+    collection_contract_address: Yup.string().required(
+      "Collection contract address is required"
+    ),
+    token: Yup.string().required("Token is required"),
+    sale_start_date: Yup.string().required("Sale start date is required"),
+
+    sale_end_date: Yup.string().required("Sale end date is required"),
+    reveal_date: Yup.string().required("Reveal date is required"),
+    unit_price: Yup.string().required("Unit Price is required"),
+  });
   const handleSubmit = () => {};
   return (
     <div>
-      <Formik initialValues={initialvalues} onSubmit={handleSubmit}>
+      <Formik
+        initialValues={initialvalues}
+        onSubmit={handleSubmit}
+        validationSchema={validate}
+      >
         {() => (
           <Form>
             <div className="form">
@@ -116,6 +149,8 @@ const Register = () => {
                   type="number"
                 ></Textfield>
               </div>
+
+              <button type="submit">Register</button>
             </div>
           </Form>
         )}
